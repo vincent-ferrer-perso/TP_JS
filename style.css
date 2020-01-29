@@ -1,3 +1,6 @@
 h1 {
     color : dodgerblue;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: darkblue;
 }
