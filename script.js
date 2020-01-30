@@ -1,23 +1,38 @@
 (function () {
    $(document).ready(function () {
        console.log("dom pret");
-       $('.p').fadeIn(500);
-       $('.i').fadeIn(500);
 
-       $('.p').append(
-           $('.i').css('display', 'flex')
-       )
-       $('.i').fadeIn(500);
-       /*
-       for(i=0;i < 10; ++i) {
-            $(".p").fadeOut(50);
-            $(".i").fadeOut(50);
-            $(".p").fadeIn(50);
-            $(".i").fadeIn(50);
+       for (l=0;l<10;++l){
+           if (l%2 == 0){
+               for (c = 0; c < 10; ++c){
+                   if (c%2 == 0) {
+                       $("#damier").append('<div class="i" />');
+                   } else {
+                       $("#damier").append('<div class="p" />');
+                   }
+               }
+           } else {
+               for (c = 0; c < 10; ++c){
+                   if (c%2 == 0) {
+                       $("#damier").append('<div class="p" />');
+                   } else {
+                       $("#damier").append('<div class="i" />');
+                   }
+               }
+           }
        }
-       */
+
+       $('.p').fadeIn(800);
+       $('.i').fadeIn(800);
 
 
+       /* clignotement */
+       for(i=0;i < 10; ++i) {
+            $('.p').fadeOut(250);
+            $('.i').fadeOut(250);
+            $('.p').fadeIn(250);
+            $('.i').fadeIn(250);
+       }
 
    });
 })();
