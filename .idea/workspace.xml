@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb25565c-8308-4b67-95dc-460004ed014d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +59,7 @@
       <workItem from="1580304093511" duration="10010000" />
       <workItem from="1580401577897" duration="1061000" />
       <workItem from="1580404337920" duration="6694000" />
+      <workItem from="1580414869990" duration="276000" />
     </task>
     <servers />
   </component>
