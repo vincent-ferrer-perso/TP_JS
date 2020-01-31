@@ -1,26 +1,39 @@
 h1 {
-    color : dodgerblue;
+    color : saddlebrown;
     text-align: center;
-    text-decoration-color: darkblue;
-    text-decoration-line: underline;
 }
 
 #damier {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     width: 500px;
+    margin : auto;
+    border: solid saddlebrown 10px;
 }
 
 #damier div {
     display: none;
+    height: 50px;
     width: 50px;
+}
+
+.bordure {
+    background: saddlebrown;
+    height: 10px;
+    width: 50px;
+}
+
+.bordureCote {
+    background: saddlebrown;
+    width: 10px;
     height: 50px;
 }
 
 .p {
-    background: darkblue;
+    background: saddlebrown;
+
 }
 
 .i {
-    background: dodgerblue;
+    background: beige;
 }
