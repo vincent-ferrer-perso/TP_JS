@@ -1,3 +1,27 @@
+
+function aparaitre() {
+    $('#damier').fadeIn(800).css('display', 'flex');
+    $('.p').fadeIn(800);
+    $('.i').fadeIn(800);
+}
+
+function disparaitre() {
+    $('#damier').fadeOut(800).css('display', 'flex');
+    $('.p').fadeOut(800);
+    $('.i').fadeOut(800);
+}
+
+function clignoter() {
+    for(i=0;i < 10; ++i) {
+        $('.p').fadeOut(250);
+        $('.i').fadeOut(250);
+        $('#damier').fadeOut(250);
+        $('.p').fadeIn(250);
+        $('.i').fadeIn(250);
+        $('#damier').fadeIn(250).css('display', 'flex');
+    }
+}
+
 (function () {
     $(document).ready(function () {
         console.log("dom pret");
@@ -21,9 +45,7 @@
                 }
             }
         }
-        $('#damier').fadeIn(800).css('display', 'flex');
-        $('.p').fadeIn(800);
-        $('.i').fadeIn(800);
+
 
 
         /* clignotement
