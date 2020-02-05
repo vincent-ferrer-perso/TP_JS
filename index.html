@@ -3,18 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>Titre de la page</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="script.js"></script>
-</head>
-<body>
-    <h1>Damier en bois</h1>
+    <!-- <link rel="stylesheet" href="style.css">  -->
+     <script src="jquery-3.4.1.min.js"></script>
+     <script src="script.js"></script>
+ </head>
+ <body>
 
-    <input id="nbLigne" type="number" value="10" max="20" min="0" step="1" onclick="construire(value)">
-    <button onclick="aparaitre()" >Aparaitre</button>
-    <button onclick="disparaitre()" >Disparaitre</button>
-    <button onclick="clignoter()" >Clignoter</button>
-    <div id="damier">
-    </div>
+     <h1>Damier en bois</h1>
+
+     <div id="joueurEnCours" style="text-align: center">Le tour de J1</div>
+ <!--
+     <input id="nbLigne" type="number" value="10" max="20" min="0" step="1" onclick="construire(value)">
+     <button onclick="aparaitre()" >Aparaitre</button>
+     <button onclick="disparaitre()" >Disparaitre</button>
+     <button onclick="clignoter()" >Clignoter</button>
+ -->
+    <div id="damier"></div>
 </body>
 </html>
