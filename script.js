@@ -112,8 +112,8 @@ class Damier {
                 let cell = $('<div>&nbsp;</div>').css(css_cell);
                 cell.css((x + y) % 2 ? css_white : css_black);
                 cell.data('x',x);
-                cell.data('x',y);
-                cell.data('statut',false)
+                cell.data('y',y);
+                cell.data('joueurPossedantLaCase', 0);
                 line.append(cell);
                 let old_css;
                 cell.hover(function(){
@@ -124,22 +124,41 @@ class Damier {
                 });
 
                 cell.click(function() {
-                    if(!$(this).data('statut')) {
-                        if (joueurEnCours == 1) {
+                    if(!$(this).data('joueurPossedantLaCase')) { // un joueur n'a pas encore joué sur la case
+                        $(this).data('joueurPossedantLaCase',joueurEnCours);
+                        if (joueurEnCours === 1) {
                             $(this).html('X');
-                            joueurEnCours = 2;
                             console.log("J1 a joué");
-                            $('#joueurEnCours').html('Le tour de J2');
+                            joueurEnCours = 2;
                         } else {
                             $(this).html('0');
-                            joueurEnCours = 1;
                             console.log("J2 a joué");
-                            $('#joueurEnCours').html('Le tour de J1');
+                            joueurEnCours = 1;
                         }
                         $(this).data('statut',true);
+                        $('#joueurEnCours').html("Le tour de J"+joueurEnCours);
+                        console.log("coordonnée x : "+ $(this).data('x') + '\n'
+                                  + "coordonnée y : "+ $(this).data('y') + '\n'
+                                  + "joueur possedant la case : J"+ $(this).data('joueurPossedantLaCase'));
+
+                        /* fonction gagner marche pas parent accede a l'element pere mais recuperation des fils pose soucis*/
+                        for(let child in $(this).parent().children()) {
+                            console.log("coordonnée x : "+ child.data('x') + '\n'
+                                      + "coordonnée y : "+ child.data('y') + '\n'
+                                      + "joueur possedant la case : J"+ child.data('joueurPossedantLaCase'));
+
+
+                            if ($(this).data() === child.data() ){
+                                console.log('OK');
+                            }
+                        }
+
+
+
                     } else {
-                        $('#joueurEnCours').append(" Case impossible");
+                        $('#joueurEnCours').html("Le tour de J"+joueurEnCours+" Case impossible");
                     }
+
                 });
 
 
@@ -153,6 +172,6 @@ class Damier {
 
 (function() {
     $(document).ready( function(){
-        new Damier('#damier', 20);
+        new Damier('#damier', 3);
     })
 })();
