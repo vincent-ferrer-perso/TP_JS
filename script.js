@@ -103,13 +103,13 @@ class Damier {
             'border':'solid green 10px',
             'margin-left':'auto',
             'margin-right':'auto'
-        }
+        };
 
-        $('#damier').css(css_damier);
+        $(id.toString()).css(css_damier);
         for (let y=0; y<ligne; y++) {
             let line = $('<div></div>');
             for(let x=0; x<ligne;x++){
-                let cell = $('<div>&nbsp;</div>').css(css_cell);
+                let cell = $('<div class="cell">&nbsp;</div>').css(css_cell);
                 cell.css((x + y) % 2 ? css_white : css_black);
                 cell.data('x',x);
                 cell.data('y',y);
@@ -126,6 +126,19 @@ class Damier {
                 cell.click(function() {
                     if(!$(this).data('joueurPossedantLaCase')) { // un joueur n'a pas encore joué sur la case
                         $(this).data('joueurPossedantLaCase',joueurEnCours);
+
+                        let nbMemeSymbole = 0;
+                        for(let y = 0; y < ligne ; ++y) { // Toute la ligne est de même symbole X ou O
+                            if ($(this).parent().children().eq(y).data('joueurPossedantLaCase') === $(this).data('joueurPossedantLaCase')) {
+                                ++nbMemeSymbole;
+                                if(nbMemeSymbole === ligne) {
+                                    window.alert("Le joueur J" + joueurEnCours + " a gagné");
+                                    joueurEnCours = 1;
+                                    // mise en place du reset du jeu
+                                }
+                            }
+                        }
+
                         if (joueurEnCours === 1) {
                             $(this).html('X');
                             console.log("J1 a joué");
@@ -140,21 +153,6 @@ class Damier {
                         console.log("coordonnée x : "+ $(this).data('x') + '\n'
                                   + "coordonnée y : "+ $(this).data('y') + '\n'
                                   + "joueur possedant la case : J"+ $(this).data('joueurPossedantLaCase'));
-
-                        /* fonction gagner marche pas parent accede a l'element pere mais recuperation des fils pose soucis*/
-                        for(let child in $(this).parent().children()) {
-                            console.log("coordonnée x : "+ child.data('x') + '\n'
-                                      + "coordonnée y : "+ child.data('y') + '\n'
-                                      + "joueur possedant la case : J"+ child.data('joueurPossedantLaCase'));
-
-
-                            if ($(this).data() === child.data() ){
-                                console.log('OK');
-                            }
-                        }
-
-
-
                     } else {
                         $('#joueurEnCours').html("Le tour de J"+joueurEnCours+" Case impossible");
                     }
