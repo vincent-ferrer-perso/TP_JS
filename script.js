@@ -127,15 +127,23 @@ class Damier {
                     if(!$(this).data('joueurPossedantLaCase')) { // un joueur n'a pas encore joué sur la case
                         $(this).data('joueurPossedantLaCase',joueurEnCours);
 
-                        let nbMemeSymbole = 0;
+                        let nbMemeSymboleL = 0;
                         for(let y = 0; y < ligne ; ++y) { // Toute la ligne est de même symbole X ou O
-                            if ($(this).parent().children().eq(y).data('joueurPossedantLaCase') === $(this).data('joueurPossedantLaCase')) {
-                                ++nbMemeSymbole;
-                                if(nbMemeSymbole === ligne) {
+                            if ($(this).parent().children().eq(y).data('joueurPossedantLaCase') ===
+                                $(this).data('joueurPossedantLaCase')) {
+                                ++nbMemeSymboleL;
+                                if(nbMemeSymboleL === ligne) {
                                     window.alert("Le joueur J" + joueurEnCours + " a gagné");
                                     joueurEnCours = 1;
                                     location.reload();
                                 }
+                            }
+                        }
+
+                        let nbMemeSymboleC = 0;
+                        for(let x = 0; x < ligne ; ++x) { // Toute la colonne est de même symbole X ou O
+                            if ($(this).parent().parent().children().eq(x).data('y') === $(this).data('y')) {
+                                
                             }
                         }
 
@@ -170,6 +178,6 @@ class Damier {
 
 (function() {
     $(document).ready( function(){
-        new Damier('#damier', 3);
+        new Damier('#damier', 5);
     })
 })();
