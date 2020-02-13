@@ -134,7 +134,7 @@ class Damier {
                                 if(nbMemeSymbole === ligne) {
                                     window.alert("Le joueur J" + joueurEnCours + " a gagné");
                                     joueurEnCours = 1;
-                                    // mise en place du reset du jeu
+                                    location.reload();
                                 }
                             }
                         }
